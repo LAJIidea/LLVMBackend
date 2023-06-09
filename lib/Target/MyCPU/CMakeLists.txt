@@ -14,8 +14,18 @@ tablegen(LLVM MyCPUGenSubTargetInfo.inc -gen-subtarget)
 add_public_tablegen_target(MyCPUCommonTableGen)
 
 add_llvm_target(MyCPUCodeGen
+        MyCPUAsmPrinter.cpp
+        MyCPUFrameLowering.cpp
+        MyCPUInstrInfo.cpp
+        MyCPUISelDAGToDAG.cpp
+        MyCPUISelLowering.cpp
+        MyCPUMachineFunction.cpp
+        MyCPUMCInstLower.cpp
+        MyCPURegisterInfo.cpp
         MyCPUTargetMachine.cpp
         MyCPUSubtarget.cpp
+        MyCPUTargetObjectFile.cpp
+        MyCPUTargetTransformInfo.cpp
         )
 
 #add_dependencies(LLVMMyCPUCodeGen intrinsics_gen)

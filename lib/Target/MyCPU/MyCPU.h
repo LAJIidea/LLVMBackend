@@ -7,8 +7,10 @@
 
 namespace llvm {
 
-class MyCPU
+class MyCPUSubtarget;
+class MyCPUTargetMachine;
+class ASMPrinter;
 
-}
+} // namespace llvm
 
 #endif // LLVM_MYCPU_H
