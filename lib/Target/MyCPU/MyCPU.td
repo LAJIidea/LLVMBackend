@@ -5,6 +5,7 @@ def MU64           : HwMode<"+64bit">;
 
 include "MyCPUSchedule.td"
 include "MyCPURegisterInfo.td"
+include "MyCPUCallingConv.td"
 include "MyCPUInstrInfo.td"
 
 

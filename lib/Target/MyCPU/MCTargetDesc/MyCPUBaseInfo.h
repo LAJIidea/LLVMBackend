@@ -7,4 +7,19 @@
 
 #include "MCTargetDesc/MyCPUTargetDesc.h"
 
+namespace MyCPUABI {
+
+enum ABI {
+  ABI_ILP32,
+  ABI_ILP32F,
+  ABI_ILP32D,
+  ABI_ILP32E,
+  ABI_LP64,
+  ABI_LP64F,
+  ABI_LP64D,
+  ABI_Unknown
+};
+
+}
+
 #endif // LLVM_MYCPUBASEINFO_H

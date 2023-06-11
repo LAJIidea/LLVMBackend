@@ -28,15 +28,30 @@ class StringRef;
 
 class MyCPUSubTarget : public MyCPUGenSubtargetInfo {
   virtual void anchor();
+  bool HasStdExtM = false;
+  bool HasStdExtA = false;
+  bool HasStdExtF = false;
+  bool HasStdExtD = false;
+  bool HasStdExtC = false;
+  bool HasStdExtB = false;
   bool HasMU64 = false;
   bool IsMU32E = false;
   unsigned XLen = 32;
   MVT XLenVT = MVT::i32;
+  MyCPUABI::ABI TargetABI = MyCPUABI::ABI_Unknown;
 
 
 public:
   MyCPUSubTarget(const Triple &TT, StringRef CPU, StringRef TuneCPU,
                  StringRef FS, StringRef ABIName, const TargetMachine &TM);
+
+  bool hasStdExtM() const { return HasStdExtM; }
+  bool hasStdExtA() const { return HasStdExtA; }
+  bool hasStdExtF() const { return HasStdExtF; }
+  bool hasStdExtD() const { return HasStdExtD; }
+  bool hasStdExtC() const { return HasStdExtC; }
+  bool hasStdExtB() const { return HasStdExtB; }
+  MyCPUABI::ABI getTargetABI() const { return TargetABI; }
 };
 } // namespace llvm
 
