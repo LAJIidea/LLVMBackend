@@ -39,11 +39,15 @@ class MyCPUSubTarget : public MyCPUGenSubtargetInfo {
   unsigned XLen = 32;
   MVT XLenVT = MVT::i32;
   MyCPUABI::ABI TargetABI = MyCPUABI::ABI_Unknown;
+  BitVector UserReservedRegister;
+  MyCPUInstrInfo InstrInfo;
 
 
 public:
   MyCPUSubTarget(const Triple &TT, StringRef CPU, StringRef TuneCPU,
                  StringRef FS, StringRef ABIName, const TargetMachine &TM);
+
+  const MyCPUInstrInfo *getInstrInfo() const override { return &InstrInfo; }
 
   bool hasStdExtM() const { return HasStdExtM; }
   bool hasStdExtA() const { return HasStdExtA; }
@@ -52,6 +56,10 @@ public:
   bool hasStdExtC() const { return HasStdExtC; }
   bool hasStdExtB() const { return HasStdExtB; }
   MyCPUABI::ABI getTargetABI() const { return TargetABI; }
+  bool isRegisterReservedByUser(Register i) const {
+    assert(i < MyCPU::NUM_TARGET_REGS && "Register out of range");
+    return UserReservedRegister[i];
+  }
 };
 } // namespace llvm
 

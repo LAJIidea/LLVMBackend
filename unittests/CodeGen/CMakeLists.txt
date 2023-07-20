@@ -30,6 +30,7 @@ add_llvm_unittest(CodeGenTests
   TypeTraitsTest.cpp
   TargetOptionsTest.cpp
   TestAsmPrinter.cpp
+  SelectionISelTest.cpp
   )
 
 add_subdirectory(GlobalISel)

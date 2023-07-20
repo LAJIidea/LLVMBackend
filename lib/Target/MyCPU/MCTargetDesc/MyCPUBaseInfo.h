@@ -6,6 +6,17 @@
 #define LLVM_MYCPUBASEINFO_H
 
 #include "MCTargetDesc/MyCPUTargetDesc.h"
+#include "llvm/ADT/StringRef.h"
+#include "llvm/ADT/StringSwitch.h"
+#include "llvm/MC/MCInstrDesc.h"
+#include "llvm/MC/SubtargetFeature.h"
+#include "llvm/Support/MachineValueType.h"
+
+namespace llvm {
+
+namespace MyCPUII {
+
+} // namespace MyCPUII
 
 namespace MyCPUABI {
 
@@ -20,6 +31,11 @@ enum ABI {
   ABI_Unknown
 };
 
-}
+MCRegister getBPReg();
+
+} // namespace MyCPUABI
+
+
+} // namespace llvm
 
 #endif // LLVM_MYCPUBASEINFO_H

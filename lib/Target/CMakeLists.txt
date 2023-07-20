@@ -28,8 +28,12 @@ if (NOT BUILD_SHARED_LIBS AND NOT APPLE)
 endif()
 
 foreach(t ${LLVM_TARGETS_TO_BUILD})
-  message(STATUS "Targeting ${t}")
-  add_subdirectory(${t})
+  if (t STREQUAL "MyCPU")
+    message("Skip target ${t}")
+  else ()
+    message(STATUS "Targeting ${t}")
+    add_subdirectory(${t})
+  endif ()
 endforeach()
 
 # Currently we do not allow libraries from lib to reference targets directly.

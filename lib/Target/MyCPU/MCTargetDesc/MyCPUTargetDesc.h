@@ -13,6 +13,9 @@
 #define GET_REGINFO_ENUM
 #include "MyCPUGenRegisterInfo.inc"
 
+#define GET_INSTRINFO_ENUM
+#include "MyCPUGenInstrInfo.inc"
+
 
 
 #endif // LLVM_MYCPUTARGETDESC_H
