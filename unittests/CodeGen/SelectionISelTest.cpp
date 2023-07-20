@@ -143,7 +143,7 @@ TEST(SelectionISelTest, SampleTest) {
   auto TargetTriple = llvm::Triple(TheModule->getTargetTriple());
   std::string Error;
   auto Target = llvm::TargetRegistry::lookupTarget(TargetTriple.str(), Error);
-  auto CPU = "generic";
+  auto CPU = "generic-rv64";
   auto Features = "";
 
   llvm::TargetOptions opt;
